@@ -86,7 +86,7 @@
                             <!--contact-->
                             <div id="contact" class="tab-pane fade active in">
                                 <div class="side-contact">
-                                    <div class="divider-content">
+                                    <div class="divider-content"></div>
                                         <?php
                                         if (!empty($this->orders)) {
                                             ?>
@@ -116,7 +116,6 @@
                                                     echo "No orders placed";
                                                 }
                                         ?>
-                                    </div>
 
                                 </div>
                             </div><!--/contact-->
