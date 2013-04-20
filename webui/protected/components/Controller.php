@@ -22,4 +22,12 @@ class Controller extends CController
 	public $breadcrumbs=array();
         
         public $sectionName = "";
+        public $orders=array();
+        
+        public function init(){
+            $orderModel = Order::model()->findAll(array("condition"=>"", "order"=>"`date` DESC"));
+            foreach($orderModel as $item){
+                $this->orders[$item->date] = $item->content;
+            }
+        }
 }
