@@ -34,10 +34,13 @@ class SiteController extends Controller
         }
         if ( !empty( $arrProducts ) ) {
             print_r($arrProducts);
-            $text = 'Plese order the following products:'.  implode('<br />', $arrProducts);
+            $text = 'Plese order the following products: '.  implode('<br />', $arrProducts);
+            $phone = Settings::model()->find( '`key` = "phone"' );
             
-            $file = '/../runtime/tts.txt';
+            $file = dirname(__FILE__).'/../runtime/tts.txt';
             file_put_contents($file, $text);
+            exec(' cat '.$file.' | text2wave -o /usr/share/asterisk/sounds/tts.ulaw -otype ulaw', $output, $err);
+            exec('asterisk -rx "originate sip/'.$phone->value.' extension 10@tts-message"');
         }
         
         die;
