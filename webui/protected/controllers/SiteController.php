@@ -18,7 +18,7 @@ class SiteController extends Controller
         $arrProducts = array();
         
         $max = 1024;
-        $file = file_get_contents('./get_values.txt');
+        $file = file_get_contents('/var/scripts/sensor_readings.txt');
         $getValues = explode(' ', $file);
         
         foreach ( $getValues as $key => $value ) { /**key => sensor_channel_no from product table**/
@@ -39,8 +39,12 @@ class SiteController extends Controller
             
             $file = dirname(__FILE__).'/../runtime/tts.txt';
             file_put_contents($file, $text);
-            exec(' cat '.$file.' | text2wave -o /usr/share/asterisk/sounds/tts.ulaw -otype ulaw', $output, $err);
-            exec('asterisk -rx "originate sip/'.$phone->value.' extension 10@tts-message"');
+            $command1 = ' cat '.$file.' | text2wave -o /usr/share/asterisk/sounds/tts.ulaw -otype ulaw';
+            exec($command1, $output, $err);
+            
+            $command2 = 'asterisk -rx "originate sip/'.$phone->value.' extension 10@tts-message"';
+            echo $command2;
+            exec($command2, $output, $err);
         }
         
         die;
