@@ -26,7 +26,7 @@
                     <aside class="side-left" style="top: 60px;">
                         <ul class="sidebar">
                             <li class="active first"> <!--always define class .first for first-child of li element sidebar left-->
-                                <a title="dashboard" href="/">
+                                <a href="<?php echo Yii::app()->getBaseUrl()?>/">
                                     <div class="helper-font-24">
                                         <i class="icon-dashboard icon-2x"></i>
                                     </div>
@@ -34,7 +34,7 @@
                                 </a>
                             </li>
                             <li> <!--always define class .first for first-child of li element sidebar left-->
-                                <a title="dashboard" href="settings/">
+                                <a href="<?php echo Yii::app()->getBaseUrl()?>/settings/">
                                     <div class="helper-font-24">
                                         <i class="icon-cogs icon-2x"></i>
                                     </div>
@@ -42,7 +42,7 @@
                                 </a>
                             </li>
                             <li> <!--always define class .first for first-child of li element sidebar left-->
-                                <a title="dashboard" href="simulator/">
+                                <a href="<?php echo Yii::app()->getBaseUrl()?>/simulator/">
                                     <div class="helper-font-24">
                                         <i class="icon-desktop icon-2x"></i>
                                     </div>

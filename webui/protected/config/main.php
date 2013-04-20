@@ -1,5 +1,7 @@
 <?php
 
+Yii::setPathOfAlias('bootstrap', dirname(__FILE__) . '/../extensions/bootstrap');
+
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 // This is the main Web application configuration. Any writable
@@ -13,6 +15,8 @@ return array(
     'import' => array(
         'application.models.*',
         'application.components.*',
+        'application.extensions.*',
+        'zii.widgets.*'
     ),
     'modules' => array(
         // uncomment the following to enable the Gii tool
@@ -26,26 +30,29 @@ return array(
     ),
     // application components
     'components' => array(
+        'bootstrap' => array(
+            'class' => 'bootstrap.components.Bootstrap',
+        ),
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
         ),
         // uncomment the following to enable URLs in path-format
-          'urlManager'=>array(
-          'urlFormat'=>'path',
-              'showScriptName' => false,
-            'rules'=>array(
-                '<controller:\w+>/<id:\d+>'=>'<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+        'urlManager' => array(
+            'urlFormat' => 'path',
+            'showScriptName' => false,
+            'rules' => array(
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
-          ),
+        ),
         // uncomment the following to use a MySQL database
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=red_umbrella',
             'emulatePrepare' => true,
             'username' => 'root',
-            'password' => '',
+            'password' => 'qwe123!@#',
             'charset' => 'utf8',
         ),
         'errorHandler' => array(
