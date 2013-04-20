@@ -95,4 +95,11 @@ class Product extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        static function getProductsByIdCategory( $id ) 
+        {
+            $model = Product::model()->findAll( 'id_category=:id', array(':id' => $id) );
+            
+            return $model;
+        }
 }

@@ -33,8 +33,11 @@ class SiteController extends Controller
             }
         }
         if ( !empty( $arrProducts ) ) {
+            print_r($arrProducts);
             $text = 'Plese order the following products:'.  implode('<br />', $arrProducts);
             
+            $file = '/../runtime/tts.txt';
+            file_put_contents($file, $text);
         }
         
         die;
