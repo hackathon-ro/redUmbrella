@@ -15,6 +15,8 @@ class SiteController extends Controller
     
     public function actionGetValues()
     {
+        $arrProducts = array();
+        
         $max = 1024;
         $file = file_get_contents('./get_values.txt');
         $getValues = explode(' ', $file);
@@ -25,10 +27,16 @@ class SiteController extends Controller
             if ( $notificationLevel ) {
                 $makePercentage = round( ($value*100)/$max ); /**get percentage from file**/
                 if ( $makePercentage <= $notificationLevel->notification_level ) { /**compare values**/
-                    echo '('.$key.')'.$notificationLevel->name.' must be refilled(Level from table:'.$notificationLevel->notification_level.'; Level from file: '.$makePercentage.')<br />';
+                    //echo '('.$key.')'.$notificationLevel->name.' must be refilled(Level from table:'.$notificationLevel->notification_level.'; Level from file: '.$makePercentage.')<br />';
+                    $arrProducts[] = $notificationLevel->name;
                 }
             }
         }
+        if ( !empty( $arrProducts ) ) {
+            $text = 'Plese order the following products:'.  implode('<br />', $arrProducts);
+            
+        }
+        
         die;
         $this->render('getValues', array(''));
     }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 20, 2013 at 07:31 PM
+-- Generation Time: Apr 20, 2013 at 07:45 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -58,9 +58,9 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 INSERT INTO `product` (`id`, `id_category`, `name`, `image`, `notification_level`, `sensor_channel_no`) VALUES
 (1, 1, 'Product 1 for Cat 1', '', 10, 0),
-(2, 1, 'Product 2 for Cat 1', '', 20, 1),
-(3, 1, 'Product 3 for Cat 1', '', 0, 2),
-(4, 3, 'Product 1 for Cat 3', '', 40, 3),
+(2, 1, 'Product 2 for Cat 1', '', 40, 1),
+(3, 1, 'Product 3 for Cat 1', '', 50, 2),
+(4, 3, 'Product 1 for Cat 3', '', 20, 3),
 (5, 3, 'Product 2 for Cat 3', '', 26, 4);
 
 -- --------------------------------------------------------
