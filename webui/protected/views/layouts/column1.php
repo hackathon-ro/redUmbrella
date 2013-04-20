@@ -33,6 +33,22 @@
                                     <span class="sidebar-text">Dashboard</span>
                                 </a>
                             </li>
+                            <li> <!--always define class .first for first-child of li element sidebar left-->
+                                <a title="dashboard" href="index.html">
+                                    <div class="helper-font-24">
+                                        <i class="icon-cogs icon-2x"></i>
+                                    </div>
+                                    <span class="sidebar-text">Settings</span>
+                                </a>
+                            </li>
+                            <li> <!--always define class .first for first-child of li element sidebar left-->
+                                <a title="dashboard" href="index.html">
+                                    <div class="helper-font-24">
+                                        <i class="icon-desktop icon-2x"></i>
+                                    </div>
+                                    <span class="sidebar-text">Simulator</span>
+                                </a>
+                            </li>
                         </ul>
                     </aside><!--/side bar -->
                 </div><!-- span side-left -->
@@ -43,13 +59,13 @@
                     <div class="content">
                         <!-- content-header -->
                         <div class="content-header">
-                            <h2><i class="icon-home"></i> Dashboard <small>welcome to smart time</small></h2>
+                            <h2><i class="icon-home"></i> Dashboard <small>welcome to SmartTime</small></h2>
                         </div><!-- /content-header -->
                         
                         <!-- content-body -->
                         <div class="content-body">
                             <div class="divider-content"><span></span></div>
-                            Content area here
+                            <?php echo $content?>
                         </div><!--/content-body -->
                     </div><!-- /content -->
                 </div><!-- /span content -->

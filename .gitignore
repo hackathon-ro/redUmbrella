@@ -2,3 +2,5 @@
 ###############
 .DS_Store
 webui/.DS_Store
+webui/protected/.DS_Store
+webui/protected/views/.DS_Store
