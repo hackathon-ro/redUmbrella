@@ -1,5 +1,6 @@
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <?php Yii::app()->clientScript->registerCoreScript('jquery.ui'); ?>    
+<?php Yii::app()->clientScript->registerCssFile( Yii::app()->clientScript->getCoreScriptUrl().'/jui/css/base/jquery-ui.css'); ?>
 <!DOCTYPE html>
 <html>
   <head>
