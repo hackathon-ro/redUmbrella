@@ -11,44 +11,20 @@ class SiteController extends Controller {
 
         $this->render('index', array('allCategories' => $allCategories));
     }
+    
+    public function actionGetValues()
+    {
+        $arrProducts = CommonFunctions::checkProducts();
+        
+        if ( !empty( $arrProducts ) ) {
+            Order::saveNewOrder( 'Plese order the following products: '.  implode("<br />", $arrProducts) ); /**save order in order table**/
 
-    public function actionGetValues() {
-        $arrProducts = array();
-
-        $max = 1024;
-        $file = file_get_contents('/var/scripts/sensor_readings.txt');
-        $getValues = explode(' ', $file);
-
-        foreach ($getValues as $key => $value) { /*         * key => sensor_channel_no from product table* */
-            /*             * get notification_level from table* */
-            $notificationLevel = Product::model()->find('sensor_channel_no =:sensonChannelNo', array(':sensonChannelNo' => $key));
-            if ($notificationLevel) {
-                $makePercentage = round(($value * 100) / $max); /*                 * get percentage from file* */
-                if ($makePercentage <= $notificationLevel->notification_level) { /*                 * compare values* */
-                    //echo '('.$key.')'.$notificationLevel->name.' must be refilled(Level from table:'.$notificationLevel->notification_level.'; Level from file: '.$makePercentage.')<br />';
-                    $arrProducts[] = $notificationLevel->name;
-                }
-            }
-        }
-        if (!empty($arrProducts)) {
-            print_r($arrProducts);
-            $text = 'Plese order the following products ' . implode(" ", $arrProducts);
-            $phone = Settings::model()->find('`key` = "phone"');
-
-            $file = dirname(__FILE__) . '/../runtime/tts.txt';
-            file_put_contents($file, $text);
-
-            $command1 = ' cat ' . $file . ' | text2wave -o /usr/share/asterisk/sounds/tts.ulaw -otype ulaw';
-            exec($command1, $output, $err);
-
-            $command2 = '/usr/sbin/asterisk -rx "originate sip/' . $phone->value . ' extension 10@tts-message"';
-            exec($command2, $output, $err);
+            CommonFunctions::sendStringForAsterisk( 'Plese order the following products '.  implode(" ", $arrProducts) );
         }
 
-        die;
-        $this->render('getValues', array(''));
+        $this->render('getValues', array());
     }
-
+    
     public function actionError() {
         if ($error = Yii::app()->errorHandler->error) {
             if (Yii::app()->request->isAjaxRequest)
