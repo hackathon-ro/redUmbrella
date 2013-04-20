@@ -1,3 +1,5 @@
+<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+<?php Yii::app()->clientScript->registerCoreScript('jquery.ui'); ?>    
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +13,6 @@
   <body>
       <?php echo $content?> 
 
-    <script src="<?php echo Yii::app()->getBaseUrl()?>js/bootstrap.min.js"></script>
+    <script src="<?php echo Yii::app()->getBaseUrl()?>/js/bootstrap.min.js"></script>
   </body>
 </html>

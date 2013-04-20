@@ -4,7 +4,7 @@ body {
 }
 a{
     text-decoration: none !important;
-    outline: none;
+    outline: none !important;
 }
 .header {
     background: url("../img/bg-body-bar.jpg") repeat no-repeat scroll 0 0 #333333;
@@ -331,4 +331,57 @@ div.divider-content{
 .side-contact{
     padding:40px 20px; 
     font-size: 0.9em;
+}
+
+
+
+
+
+#container {
+    background: rgba( 0, 0, 0, 0.10);
+    margin-left:auto;
+    margin-right:auto;
+    width: 360px;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #ccc;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 30px;
+    padding-top: 5px;
+}
+#glass {
+    background: rgba( 255, 255, 255, 0.50);
+    border: 1px solid #bbb;
+    border-top: 1px solid #eee;  
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 360px;
+    height: 400px;
+    position: relative;
+}
+#water {
+    background-image: url("../img/waves.png");   
+    background-position: top right;
+    position: absolute;
+    bottom: 0px;
+    width: 360px;
+    height: 100px;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.product-box{
+    float:left;
+    margin: 0 50px;
 }
