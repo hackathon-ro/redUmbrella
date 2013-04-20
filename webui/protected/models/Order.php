@@ -85,4 +85,12 @@ class Order extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        static function saveNewOrder ( $ordedText ) {
+            $model = new Order;
+            
+            $model->content = $ordedText;
+            $model->date = new CDbExpression('utc_timestamp()');
+            return $model->save();            
+        }
 }

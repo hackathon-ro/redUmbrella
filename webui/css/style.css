@@ -384,4 +384,10 @@ div.divider-content{
 .product-box{
     float:left;
     margin: 0 50px;
+    text-align: center;
+    font-weight: 1.2em;
+    font-weight: bold;
+}
+.product-box p{
+    font-weight: 1.2em;
 }
