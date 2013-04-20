@@ -1,9 +1,13 @@
 <?php $this->sectionName = '<i class="icon-desktop"></i> Simulator <small>proof of concept</small>'; ?>
-<?php 
+<?php
 Yii::app()->clientScript->registerScript("tabMenu", "
     $('#tab-stat a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
+    });
+    
+    $(function() {
+        $('#slider_0').slider();
     });
 ");
 ?>
@@ -13,27 +17,28 @@ Yii::app()->clientScript->registerScript("tabMenu", "
             <a data-box="collapse"><i class="icofont-caret-up"></i></a>
         </div>
         <ul id="tab-stat" class="nav nav-tabs">
-            <?php if ( $allCategories ): ?>
-                <?php foreach ( $allCategories as $key => $category ): ?>
-                    <?php echo '<li '.( $key == 0 ? 'class="active"' : '' ).'><a href="#category_'.$category->id.'" data-toggle="tab">'.$category->name.'</a></li>'; ?>
+            <?php if ($allCategories): ?>
+                <?php foreach ($allCategories as $key => $category): ?>
+                    <?php echo '<li ' . ( $key == 0 ? 'class="active"' : '' ) . '><a href="#category_' . $category->id . '" data-toggle="tab">' . $category->name . '</a></li>'; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
         </ul>
     </div>
     <div class="box-body">
         <div class="tab-content">
-            <?php if ( $allCategories ): ?>
-                <?php foreach ( $allCategories as $key => $category ) : ?>
-                    <div id="category_<?php echo $category->id; ?>" class="tab-pane fade <?php if ( $key == 0 ) echo 'active'; ?> in">
-                        <?php $productsForCategory = Product::getProductsByIdCategory( $category->id ); ?>
-                        <?php if ( $productsForCategory ): ?>
+            <?php if ($allCategories): ?>
+                <?php foreach ($allCategories as $key => $category) : ?>
+                    <div id="category_<?php echo $category->id; ?>" class="tab-pane fade <?php if ($key == 0) echo 'active'; ?> in">
+                        <?php $productsForCategory = Product::getProductsByIdCategory($category->id); ?>
+                        <?php if ($productsForCategory): ?>
                             <div class="row-fluid">
-                            <?php foreach ( $productsForCategory as $product ): ?>
-                                <?php echo $product->sensor_channel_no; ?>
-                                     <br />
-                                     <?php echo $product->name;?>
-                                    
-                            <?php endforeach; ?>
+                                <?php foreach ($productsForCategory as $product): ?>
+                                    <div class="slider" id="slider_<?php echo $product->sensor_channel_no; ?>"></div>
+
+                                    <br />
+                                    <?php echo $product->name; ?>
+
+                                <?php endforeach; ?>
                             </div>
                         <?php else: ?>
                             No products
@@ -44,3 +49,6 @@ Yii::app()->clientScript->registerScript("tabMenu", "
         </div>
     </div>
 </div>
+<script>
+    
+</script>
