@@ -38,7 +38,7 @@ class Product extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_category, name, image, notification_level', 'required'),
+			array('id_category, name, notification_level', 'required'),
 			array('id_category', 'numerical', 'integerOnly'=>true),
 			array('notification_level', 'numerical'),
 			array('name', 'length', 'max'=>50),
@@ -95,11 +95,4 @@ class Product extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-        
-        static function getProductsByIdCategory($id)
-        {
-            $model = Product::model()->findAll( 'id_category=:idCategory', array(':idCategory' => $id) );
-            
-            return $model;
-        }
 }

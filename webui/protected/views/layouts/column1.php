@@ -26,7 +26,7 @@
                     <aside class="side-left" style="top: 60px;">
                         <ul class="sidebar">
                             <li class="active first"> <!--always define class .first for first-child of li element sidebar left-->
-                                <a title="dashboard" href="index.html">
+                                <a title="dashboard" href="/">
                                     <div class="helper-font-24">
                                         <i class="icon-dashboard icon-2x"></i>
                                     </div>
@@ -34,7 +34,7 @@
                                 </a>
                             </li>
                             <li> <!--always define class .first for first-child of li element sidebar left-->
-                                <a title="dashboard" href="index.html">
+                                <a title="dashboard" href="settings/">
                                     <div class="helper-font-24">
                                         <i class="icon-cogs icon-2x"></i>
                                     </div>
@@ -42,7 +42,7 @@
                                 </a>
                             </li>
                             <li> <!--always define class .first for first-child of li element sidebar left-->
-                                <a title="dashboard" href="index.html">
+                                <a title="dashboard" href="simulator/">
                                     <div class="helper-font-24">
                                         <i class="icon-desktop icon-2x"></i>
                                     </div>
@@ -59,7 +59,7 @@
                     <div class="content">
                         <!-- content-header -->
                         <div class="content-header">
-                            <h2></h2>
+                            <h2><?php echo $this->sectionName?></h2>
                         </div><!-- /content-header -->
                         
                         <!-- content-body -->
