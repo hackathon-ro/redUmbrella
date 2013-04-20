@@ -59,7 +59,7 @@
                     <div class="content">
                         <!-- content-header -->
                         <div class="content-header">
-                            <h2><i class="icon-home"></i> Dashboard <small>welcome to SmartTime</small></h2>
+                            <h2></h2>
                         </div><!-- /content-header -->
                         
                         <!-- content-body -->

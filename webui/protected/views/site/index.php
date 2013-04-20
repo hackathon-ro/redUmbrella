@@ -1,8 +1,13 @@
+<?php $this->sectionName = '<i class="icon-home"></i> Dashboard <small>welcome to SmartTime</small>'; ?>
 <script type="text/javascript" src="http://10.10.0.20:8888/socket.io/socket.io.js"></script>
 <script type="text/javascript">
     var socket = io.connect('http://10.10.0.20:8888');
     socket.on('newData', function (data) {
-        console.log(data);
+        var maxHeight = 450; /**max hight for box**/
+        $.each(data, function(index, value){
+            var x = (value * maxHeight)/100;
+            $('.box-channel-no-'+index+' .water').css('height', Math.round(x)+'px');
+        });
     });
 </script>
 <?php 
@@ -35,11 +40,11 @@ Yii::app()->clientScript->registerScript("tabMenu", "
                         <?php if ( $productsForCategory ): ?>
                             <div class="row-fluid">
                             <?php foreach ( $productsForCategory as $product ): ?>
-                                <div class="product-box">
+                                <div class="product-box box-channel-no-<?php echo $product->sensor_channel_no; ?>">
                                     <?php echo $product->name;?> <br />
-                                    <div id="container">
-                                        <div id="glass">
-                                            <div id="water" style="height:150px; background-image: url('img/<?php echo Yii::app()->params->colors[ array_rand(Yii::app()->params->colors) ]; ?>');"></div>
+                                    <div class="container">
+                                        <div class="glass">
+                                            <div class="water" style="height:150px; background-image: url('img/<?php echo Yii::app()->params->colors[ array_rand(Yii::app()->params->colors) ]; ?>');"></div>
                                         </div>
                                     </div>
                                 </div>

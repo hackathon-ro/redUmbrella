@@ -337,7 +337,7 @@ div.divider-content{
 
 
 
-#container {
+.container {
     background: rgba( 0, 0, 0, 0.10);
     margin-left:auto;
     margin-right:auto;
@@ -354,7 +354,7 @@ div.divider-content{
     padding-bottom: 30px;
     padding-top: 5px;
 }
-#glass {
+.glass {
     background: rgba( 255, 255, 255, 0.50);
     border: 1px solid #bbb;
     border-top: 1px solid #eee;  
@@ -365,7 +365,7 @@ div.divider-content{
     height: 400px;
     position: relative;
 }
-#water {
+.water {
     background-image: url("../img/waves.png");   
     background-position: top right;
     position: absolute;
