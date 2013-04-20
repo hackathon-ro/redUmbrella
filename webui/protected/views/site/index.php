@@ -1,3 +1,10 @@
+<script type="text/javascript" src="http://10.10.0.20:8888/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+    var socket = io.connect('http://10.10.0.20:8888');
+    socket.on('newData', function (data) {
+        console.log(data);
+    });
+</script>
 <?php 
 Yii::app()->clientScript->registerScript("tabMenu", "
     $('#tab-stat a').click(function (e) {
