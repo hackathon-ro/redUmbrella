@@ -34,7 +34,7 @@ class SiteController extends Controller
         }
         if ( !empty( $arrProducts ) ) {
             print_r($arrProducts);
-            $text = 'Plese order the following products: '.  implode('<br />', $arrProducts);
+            $text = 'Plese order the following products: '.  implode("\n", $arrProducts);
             $phone = Settings::model()->find( '`key` = "phone"' );
             
             $file = dirname(__FILE__).'/../runtime/tts.txt';
