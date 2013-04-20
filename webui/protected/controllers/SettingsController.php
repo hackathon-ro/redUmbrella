@@ -16,6 +16,12 @@ class SettingsController extends Controller {
 
         $this->render('index', array("modelSettings" => $modelSettings, "modelProducts" => $modelProducts));
     }
+    
+    /**
+     * This is the action used to get the info 
+     * for a specific item from the settings table
+     * Return JSON object with the item properties
+     */
 
     public function actionGetSettings() {
         $item = CHttpRequest::getParam('id', null);
@@ -31,6 +37,10 @@ class SettingsController extends Controller {
         echo json_encode($result);
     }
 
+    /**
+     * Update existing item from the settings table
+     * Return JSON object with the success/error message
+     */
     public function actionSaveSettings() {
         $item = CHttpRequest::getParam('id', null);
         $value = CHttpRequest::getParam('value', null);
@@ -55,6 +65,10 @@ class SettingsController extends Controller {
         echo json_encode($result);
     }
     
+    /**
+     * Get a pecific product dedtails from the database
+     * Return JSON object with the product properties
+     */
     public function actionGetProduct() {
         $item = CHttpRequest::getParam('id', null);
         $result = array();
@@ -69,7 +83,10 @@ class SettingsController extends Controller {
 
         echo json_encode($result);
     }
-    
+    /**
+     * Inert/Update product details
+     * Returns JSON object with eht status message
+     */
     public function actionSaveProduct() {
         $item = CHttpRequest::getParam('id', null);
         $name = CHttpRequest::getParam('name', null);

@@ -21,10 +21,24 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
         
+        /**
+         *
+         * @var string - display the current section name in the main vew container
+         */
         public $sectionName = "";
+        
+        /**
+         *
+         * @var type array - builds an array with the list of current order exisiting in the system
+         */
         public $orders=array();
         
+        /**
+         * overwrite the init method in order to populate the $orders array with the orders from the system.
+         */
         public function init(){
+            parent::init();
+            
             $orderModel = Order::model()->findAll(array("condition"=>"", "order"=>"`date` DESC"));
             foreach($orderModel as $item){
                 $this->orders[$item->date] = $item->content;
