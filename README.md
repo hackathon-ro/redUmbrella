@@ -131,3 +131,13 @@ V Hardware setup
 -----------------
 - FSR (Force Sensitive Resistor) Brick Sensor connected to an ADC(MCP 3008) via a sensor sheild
 - Raspberry PI
+
+VI. Services to start
+
+1. Python script
+
+python /var/scripts/get_sensor_readings.py
+
+2. NodeJS server
+
+nodejs /var/nodes_server/server.js
