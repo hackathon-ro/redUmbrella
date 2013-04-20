@@ -45,7 +45,7 @@ return array(
             'connectionString' => 'mysql:host=localhost;dbname=red_umbrella',
             'emulatePrepare' => true,
             'username' => 'root',
-            'password' => '',
+            'password' => 'qwe123!@#',
             'charset' => 'utf8',
         ),
         'errorHandler' => array(
