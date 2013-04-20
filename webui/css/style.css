@@ -2,6 +2,10 @@ body {
     background: url("../img/bg-body.jpg") repeat scroll 0 0 #E4E4E4;
     font-family: 'Open Sans',Verdana,Arial,Helvetica,sans-serif;
 }
+a{
+    text-decoration: none !important;
+    outline: none;
+}
 .header {
     background: url("../img/bg-body-bar.jpg") repeat no-repeat scroll 0 0 #333333;
     border-bottom: 1px solid #2E2E2E;
@@ -158,4 +162,173 @@ body {
 .sidebar-right > .sidebar-right-header h1 > small, .sidebar-right > .sidebar-right-header h2 > small, .sidebar-right > .sidebar-right-header h3 > small, .sidebar-right > .sidebar-right-header h4 > small, .sidebar-right > .sidebar-right-header h5 > small, .sidebar-right > .sidebar-right-header h6 > small {
     font-size: 0.8em;
     font-weight: normal;
+}
+.sr-header-left,
+.sr-header-right{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.bold {
+    font-weight: bold;
+}
+.content > .content-header > ul.content-header-action{
+    display: block;
+    list-style: none;
+    margin: 0px; padding: 0px;
+}
+
+.content > .content-header > ul.content-header-action li{
+    display: inline-block;
+    list-style: none;
+    margin: 0px 10px 0px 0px;
+    padding: 0px;
+    float: left;
+}
+.content > .content-header > ul.content-header-action li:hover .badge-circle{
+    opacity: 1;
+}
+
+.content > .content-header > ul.content-header-action li.divider{
+    height: 40px;
+    border-right: 1px solid #CDCDCD;
+}
+
+.content > .content-header > ul.content-header-action li .badge-circle{
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    display: inline-block;
+    text-align: center;
+    font-size: 2em;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    float: left;
+}
+
+.content > .content-header > ul.content-header-action li .badge-circle > div{
+    width: 40px;
+    height: 30px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    display: inline-block;
+    padding-top: 8px;
+}
+
+.content > .content-header > ul.content-header-action li .badge-circle i{
+    padding: 0px;
+    margin: -12px 0px;
+}
+.content > .content-header > ul.content-header-action li .action-text{
+    display: inline-block;
+    font-weight: bold;
+    margin: 5px 0px 5px 5px;
+}
+.content > .content-header > ul.content-header-action li .action-text span{
+    display: block;
+    font-weight: normal;
+    text-align: center;
+    margin-top: -5px;
+}
+.content{
+    margin-top: 60px;
+    margin-left: -3.4%;
+    margin-bottom: -62px;
+    display: block;
+    background: #EDEDED url('../img/bg-content.jpg');
+    border: 1px solid #CDCDCD;
+    border-left: none;
+    padding-bottom: 0px;
+    min-height: 580px;
+}
+.content > .content-header h1,
+.content > .content-header h2,
+.content > .content-header h3,
+.content > .content-header h4,
+.content > .content-header h5,
+.content > .content-header h6{
+    font-size: 1.2em;
+    margin: 0px;
+}
+
+.content > .content-header h1 > i:first-child,
+.content > .content-header h2 > i:first-child,
+.content > .content-header h3 > i:first-child,
+.content > .content-header h4 > i:first-child,
+.content > .content-header h5 > i:first-child,
+.content > .content-header h6 > i:first-child{
+    margin-right: 5px;
+}
+.content > .content-header h1 > small,
+.content > .content-header h2 > small,
+.content > .content-header h3 > small,
+.content > .content-header h4 > small,
+.content > .content-header h5 > small,
+.content > .content-header h6 > small{
+    font-size: .8em;
+    font-weight: normal;
+}
+/* content-header */
+.content > .content-header{
+    padding: 10px 20px 10px 20px;
+    border-bottom: 1px solid #CDCDCD;
+    background: #E9E9E9 url('../img/bg-content-header.png');
+    color: #626262;
+}
+div.divider-content{
+    display: block;
+    border-bottom-color:#F5F5F5;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-top-color:#CDCDCD;
+    border-top-style:solid;
+    border-top-width:1px;
+    height:0;
+    margin:20px 0;
+    position:relative;
+}
+/* content-body */
+.content > .content-body{
+    padding: 40px 20px 40px 20px;
+    font-size: .9em;
+    background: #FFFFFF url('../img/noise.png');
+    min-height: 540px;
+}
+.navbar-helper .panel-sitename{
+    padding-left: 20px;
+}
+
+.navbar-helper .panel-sitename h1,
+.navbar-helper .panel-sitename h2,
+.navbar-helper .panel-sitename h3,
+.navbar-helper .panel-sitename h4,
+.navbar-helper .panel-sitename h5,
+.navbar-helper .panel-sitename h6{
+    font-size: 2.3em;
+    font-family: 'Aclonica', serif;
+    color: #F1F1F1;
+    text-shadow: 0px 1px 1px #4d4d4d;
+}
+.color-teal{
+    color: #00A0B1;
+}
+.navbar-helper .panel-sitename h1,
+.navbar-helper .panel-sitename h2,
+.navbar-helper .panel-sitename h3,
+.navbar-helper .panel-sitename h4,
+.navbar-helper .panel-sitename h5,
+.navbar-helper .panel-sitename h6{
+    font-size: 2.3em;
+    font-family: 'Aclonica', serif;
+    color: #F1F1F1;
+    text-shadow: 0px 1px 1px #4d4d4d;
+}
+.panel-sitename h2 a { 
+    color: #F1F1F1;
+}
+.side-contact{
+    padding:40px 20px; 
+    font-size: 0.9em;
 }
