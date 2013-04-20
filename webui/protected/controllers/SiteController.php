@@ -24,7 +24,7 @@ class SiteController extends Controller
             $notificationLevel = Product::model()->find( 'sensor_channel_no =:sensonChannelNo', array(':sensonChannelNo' => $key) );
             if ( $notificationLevel ) {
                 $makePercentage = round( ($value*100)/$max ); /**get percentage from file**/
-                if ( $notificationLevel->notification_level <= $makePercentage ) { /**compare values**/
+                if ( $makePercentage <= $notificationLevel->notification_level ) { /**compare values**/
                     echo '('.$key.')'.$notificationLevel->name.' must be refilled(Level from table:'.$notificationLevel->notification_level.'; Level from file: '.$makePercentage.')<br />';
                 }
             }
