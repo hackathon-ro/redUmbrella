@@ -12,12 +12,22 @@ class SimulatorController extends Controller {
         $this->render('index', array('allCategories' => $allCategories));
     }
 
-    public function actionError() {
-        if ($error = Yii::app()->errorHandler->error) {
-            if (Yii::app()->request->isAjaxRequest)
-                echo $error['message'];
-            else
-                $this->render('error', $error);
+    public function actionSaveSettings() {
+        if (isset($_REQUEST['sliderValue'])) {
+            //  add 0 to the remaining channels
+            for ($i = 0; $i <= 7; $i++) {
+                if (!isset($_REQUEST['sliderValue'][$i])) {
+                    $_REQUEST['sliderValue'][$i] = 0;
+                }
+            }
+
+            // sort the array
+            ksort($_REQUEST['sliderValue']);
+
+            // generate the line
+            $str = implode(' ', $_REQUEST['sliderValue']);
+
+            file_put_contents(Yii::app()->params['valuesPath'], $str);
         }
     }
 

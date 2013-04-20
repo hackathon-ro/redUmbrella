@@ -1,54 +1,63 @@
 <?php $this->sectionName = '<i class="icon-desktop"></i> Simulator <small>proof of concept</small>'; ?>
 <?php
-Yii::app()->clientScript->registerScript("tabMenu", "
-    $('#tab-stat a').click(function (e) {
-        e.preventDefault();
-        $(this).tab('show');
-    });
-    
+Yii::app()->clientScript->registerScript("tabMenu", '    
     $(function() {
-        $('#slider_0').slider();
+        $(".slider").slider({
+            min: 0,
+            max: 1024,
+            slide: function( event, ui ) {
+                $(this).next().val(ui.value);
+            }
+        }
+        );
     });
-");
-?>
-<div class="box-tab corner-all">
-    <div class="box-header corner-top">
-        <div class="header-control pull-right">
-            <a data-box="collapse"><i class="icofont-caret-up"></i></a>
-        </div>
-        <ul id="tab-stat" class="nav nav-tabs">
-            <?php if ($allCategories): ?>
-                <?php foreach ($allCategories as $key => $category): ?>
-                    <?php echo '<li ' . ( $key == 0 ? 'class="active"' : '' ) . '><a href="#category_' . $category->id . '" data-toggle="tab">' . $category->name . '</a></li>'; ?>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </ul>
-    </div>
-    <div class="box-body">
-        <div class="tab-content">
-            <?php if ($allCategories): ?>
-                <?php foreach ($allCategories as $key => $category) : ?>
-                    <div id="category_<?php echo $category->id; ?>" class="tab-pane fade <?php if ($key == 0) echo 'active'; ?> in">
-                        <?php $productsForCategory = Product::getProductsByIdCategory($category->id); ?>
-                        <?php if ($productsForCategory): ?>
-                            <div class="row-fluid">
-                                <?php foreach ($productsForCategory as $product): ?>
-                                    <div class="slider" id="slider_<?php echo $product->sensor_channel_no; ?>"></div>
-
-                                    <br />
-                                    <?php echo $product->name; ?>
-
-                                <?php endforeach; ?>
-                            </div>
-                        <?php else: ?>
-                            No products
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
-    </div>
-</div>
-<script>
     
-</script>
+    $("#form_sliders").submit(function () {
+        $.ajax({
+            url: ' . Yii::app()->getBaseUrl() . '"/simulator/saveSettings",
+            data: $(this).serialize(),
+            dataType: "JSON"
+        }).done(function(data) {
+            alert("Setting were successfully saved!");
+        });
+        return false;
+    });
+    
+    $("#send_button").click(function () {
+        $.ajax({
+            url: ' . Yii::app()->getBaseUrl() . '"/site/getValues",
+            dataType: "JSON"
+        }).done(function(data) {
+            alert("Order was sent!");
+        });
+    });
+');
+?>
+
+<div>
+    <form method="post" action="#" id="form_sliders">
+        <?php if ($allCategories): ?>
+            <?php foreach ($allCategories as $key => $category) : ?>
+                <?php $productsForCategory = Product::getProductsByIdCategory($category->id); ?>
+                <?php if ($productsForCategory): ?>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <?php foreach ($productsForCategory as $product): ?>
+                                <?php echo $product->name; ?><div class="slider" id="slider_<?php echo $product->sensor_channel_no; ?>"></div>
+                                <input class="slider_value" type="hidden" name="sliderValue[<?php echo $product->sensor_channel_no; ?>]" id="slider_value_<?php echo $product->sensor_channel_no; ?>" value=""/>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <br>
+            <div class="row-fluid">
+                <div class="span6">
+                    <button type="submit" class="btn btn-primary">Save settings</button>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="#" id="send_button" class="btn btn-primary">Send notification</a>
+                </div>
+            </div>
+        <?php endif; ?>
+    </form>
+</div>
