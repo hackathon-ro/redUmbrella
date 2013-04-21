@@ -43,7 +43,7 @@ Yii::app()->clientScript->registerScript("tabMenu", '
                     <?php foreach ($productsForCategory as $product): ?>
                         <div class="span" style="margin: 9px 0px !important;">
                             <?php echo $product->name; ?><div class="slider" id="slider_<?php echo $product->sensor_channel_no; ?>"></div>
-                            <input class="slider_value" type="hidden" name="sliderValue[<?php echo $product->sensor_channel_no; ?>]" id="slider_value_<?php echo $product->sensor_channel_no; ?>" value=""/>
+                            <input class="slider_value" type="hidden" name="sliderValue[<?php echo $product->sensor_channel_no; ?>]" id="slider_value_<?php echo $product->sensor_channel_no; ?>" value="0"/>
                         </div>
                     <?php endforeach; ?>                        
                 </div>

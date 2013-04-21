@@ -19,7 +19,7 @@ class SimulatorController extends Controller {
         if (isset($_REQUEST['sliderValue'])) {
             //  add 0 to the remaining channels
             for ($i = 0; $i <= 7; $i++) {
-                if (!isset($_REQUEST['sliderValue'][$i])) {
+                if (!isset($_REQUEST['sliderValue'][$i]) && empty($_REQUEST['sliderValue'][$i]) ) {
                     $_REQUEST['sliderValue'][$i] = 0;
                 }
             }
@@ -29,8 +29,9 @@ class SimulatorController extends Controller {
 
             // generate the line
             $str = implode(' ', $_REQUEST['sliderValue']);
-
-            file_put_contents(Yii::app()->params['valuesPath'], $str);
+            print_r($_REQUEST['sliderValue']);
+            die;
+            //file_put_contents(Yii::app()->params['valuesPath'], $str);
         }
     }
 
