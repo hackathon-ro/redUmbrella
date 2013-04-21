@@ -11,9 +11,9 @@ Red Umbrella - Smart Time
 
 # Team Members
 
-* Daniela Zavelca
-* Adrian Cismas
 * Marius-Constantin Postolache
+* Adrian Cismas
+* Daniela Zavelca
 
 # Directories structure
 
