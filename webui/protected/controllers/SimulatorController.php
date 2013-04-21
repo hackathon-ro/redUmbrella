@@ -29,9 +29,8 @@ class SimulatorController extends Controller {
 
             // generate the line
             $str = implode(' ', $_REQUEST['sliderValue']);
-            print_r($_REQUEST['sliderValue']);
-            die;
-            //file_put_contents(Yii::app()->params['valuesPath'], $str);
+            
+            file_put_contents(Yii::app()->params['valuesPath'], $str);
         }
     }
 
