@@ -140,4 +140,4 @@ python /var/scripts/get_sensor_readings.py
 
 2. NodeJS server
 
-nodejs /var/nodes_server/server.js
+nodejs /var/node_server/server.js
