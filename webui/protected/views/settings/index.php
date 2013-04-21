@@ -1,5 +1,5 @@
 <?php
-$this->sectionName = '<i class="icon-cogs"></i> Settings';
+$this->sectionName = '<i class="icon-cogs"></i> Settings <small>system configuration</small>';
 ?>
 <div class="row-fluid">
     <div class="span6">
