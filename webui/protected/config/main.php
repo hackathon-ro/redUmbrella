@@ -87,7 +87,7 @@ return array(
         //'valuesPath' => './get_values.txt',
         'maxForceSensor' => 1024,
         'socketIoConnect' => 'http://10.10.0.20:8888',
-        'notificationMessage' => 'Hello its seems like some products are missing from your house. Plese order the following products',
+        'notificationMessage' => 'Hello its seems like some products are missing from your house. Please order the following products',
         'maxHeightCanvas' => 403,
     ),
 );
