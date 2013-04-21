@@ -8,8 +8,10 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         $allCategories = ProductCategory::model()->findAll();
+        
+        $getValues = WebUiHelper::parseFile();
 
-        $this->render('index', array('allCategories' => $allCategories));
+        $this->render('index', array('allCategories' => $allCategories, 'getValues' => $getValues));
     }
     
     public function actionGetValues()

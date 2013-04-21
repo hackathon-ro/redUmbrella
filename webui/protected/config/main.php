@@ -16,6 +16,7 @@ return array(
         'application.models.*',
         'application.components.*',
         'application.extensions.*',
+        'application.helpers.*',
         'zii.widgets.*'
     ),
     'modules' => array(
@@ -52,8 +53,8 @@ return array(
             'connectionString' => 'mysql:host=localhost;dbname=red_umbrella',
             'emulatePrepare' => true,
             'username' => 'root',
-            'password' => 'qwe123!@#',
-            //'password' => '',
+            //'password' => 'qwe123!@#',
+            'password' => '',
             'charset' => 'utf8',
         ),
         'errorHandler' => array(
@@ -82,10 +83,11 @@ return array(
         // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
         'colors' => array('waves.png', 'waves_brown.png', 'waves_green.png', 'waves_orange.png', 'waves_red.png'),
-        'valuesPath' => '/var/scripts/sensor_readings.txt',
-        //'valuesPath' => './get_values.txt',
+        //'valuesPath' => '/var/scripts/sensor_readings.txt',
+        'valuesPath' => './get_values.txt',
         'maxForceSensor' => 1024,
         'socketIoConnect' => 'http://10.10.0.20:8888',
         'notificationMessage' => 'Hello its seems like some products are missing from your house. Plese order the following products',
+        'maxHeightCanvas' => 450,
     ),
 );

@@ -13,9 +13,8 @@ Yii::app()->clientScript->registerScript("tabMenu", "
     });
     
     socket.on('newData', function (data) {
-        var maxHeight = 450; /**max height for box**/
         $.each(data, function(index, value){
-            var x = (value * maxHeight)/100;
+            var x = (value * ".Yii::app()->params->maxHeightCanvas.")/100;
             $('.box-channel-no-'+index+' .water').css('height', Math.round(x)+'px');
         });
     });
@@ -45,11 +44,12 @@ Yii::app()->clientScript->registerScript("tabMenu", "
                             
                             <div class="row-fluid">
                             <?php foreach ( $productsForCategory as $product ): ?>
+                                <?php $currentValue = ($getValues[$product->sensor_channel_no] * Yii::app()->params->maxHeightCanvas)/Yii::app()->params->maxForceSensor; ?>
                                 <div class="product-box box-channel-no-<?php echo $product->sensor_channel_no; ?>">
                                     <p><?php echo $product->name;?> </p>
                                     <div class="container">
                                         <div class="glass">
-                                            <div class="water" style="height:450px; background-image: url('img/<?php echo Yii::app()->params->colors[ array_rand(Yii::app()->params->colors) ]; ?>');"></div>
+                                            <div class="water" style="height:<?php echo $currentValue; ?>px; background-image: url('img/<?php echo Yii::app()->params->colors[ array_rand(Yii::app()->params->colors) ]; ?>');"></div>
                                         </div>
                                     </div>
                                 </div>

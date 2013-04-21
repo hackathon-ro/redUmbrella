@@ -5,8 +5,7 @@ class CommonFunctions {
     {
         $arrProducts = array();
         
-        $file = file_get_contents(Yii::app()->params->valuesPath);
-        $getValues = explode(' ', $file);
+        $getValues = WebUiHelper::parseFile();
         
         foreach ( $getValues as $key => $value ) { /**key => sensor_channel_no from product table**/
             $notificationLevel = Product::model()->find( 'sensor_channel_no =:sensonChannelNo', array(':sensonChannelNo' => $key) ); /**get notification_level from table**/
