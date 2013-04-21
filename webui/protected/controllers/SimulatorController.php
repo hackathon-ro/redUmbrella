@@ -7,9 +7,12 @@ class SimulatorController extends Controller {
      * when an action is not explicitly requested by users.
      */
     public function actionIndex() {
+        $file = file_get_contents(Yii::app()->params->valuesPath);
+        $getValues = explode(' ', $file);
+        
         $allCategories = ProductCategory::model()->findAll();
 
-        $this->render('index', array('allCategories' => $allCategories));
+        $this->render('index', array('allCategories' => $allCategories, 'getValues' => $getValues));
     }
 
     public function actionSaveSettings() {
