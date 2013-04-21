@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScript("tabMenu", '
             <?php endif; ?>
             <div class="row-fluid" style="margin: 30px 0 0 0;">
                 <div class="span6">
-                    <button type="submit" class="btn btn-primary">Save settings</button>
+                    <button type="submit" class="btn btn-primary" id="save_settings">Save settings</button>
                     &nbsp;&nbsp;&nbsp;
                     <a href="#" id="send_button" class="btn btn-success">Send notification</a>
                 </div>

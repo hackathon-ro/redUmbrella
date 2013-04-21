@@ -15,5 +15,6 @@
       <?php echo $content?> 
 
     <script src="<?php echo Yii::app()->getBaseUrl()?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo Yii::app()->getBaseUrl()?>/js/bootstrap-button.js"></script>    
   </body>
 </html>
