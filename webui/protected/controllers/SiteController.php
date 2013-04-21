@@ -21,7 +21,7 @@ class SiteController extends Controller {
         if ( !empty( $arrProducts ) ) {
             Order::saveNewOrder( Yii::app()->params->notificationMessage.': '.  implode("<br />", $arrProducts) ); /**save order in order table**/
 
-            CommonFunctions::sendStringForAsterisk( Yii::app()->params->notificationMessage.' '.implode("     ", $arrProducts) );
+            CommonFunctions::sendStringForAsterisk( Yii::app()->params->notificationMessage.' '.implode(" . ", $arrProducts) );
         }
 
         $this->render('getValues', array());
