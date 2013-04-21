@@ -88,6 +88,6 @@ return array(
         'maxForceSensor' => 1024,
         'socketIoConnect' => 'http://10.10.0.20:8888',
         'notificationMessage' => 'Hello its seems like some products are missing from your house. Plese order the following products',
-        'maxHeightCanvas' => 450,
+        'maxHeightCanvas' => 403,
     ),
 );
