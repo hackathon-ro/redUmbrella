@@ -2,142 +2,172 @@
 Red Umbrella - Smart Time
 =========================
 
-I. Directories structure
------------------------------
+# Application name
 
-A. webui/ - the web interface of the application
-B. scripts/ - location of the python scripts used for reading the GPIO pins
-C. node_Server/ - location of the nodejs server used for the in app realtime notifications
+## Smart Time
 
-II. Installation instructions
------------------------------
+* Smart = Our solution is smart
+* Time = Our solution is meant to manage time in a productive way
 
+# Team Members
+
+* Daniela Zavelca
+* Adrian Cismas
+* Marius-Constantin Postolache
+
+# Directories structure
+
+* webui/ - the web interface of the application
+* scripts/ - location of the python scripts used for reading the GPIO pins
+* node_Server/ - location of the nodejs server used for the in app realtime notifications
+
+# Installation instructions
+
+<pre>
 apt-get update
+</pre>
 
+## Asterisk PBX - installation and configuration
 
-A. Asterisk PBX - installation and configuration
+### Install Asterisk
 
-1. Install
-
+<pre>
 apt-get install asterisk
+</pre>
 
-2. Configure the users
+### Configure the users
 
-- in /etc/asterisk/sip.conf add this lines for two users, 101 and 102:
+* in /etc/asterisk/sip.conf add this lines for two users, 101 and 102:
 
+<pre>
 [101]
-
 type=friend
-
 host=dynamic
-
 secret=qwe123
-
 disallow=all
-
 allow=ulaw
-
 context=incoming
 
 [102]
-
 type=friend
-
 host=dynamic
-
 secret=qwe123
-
 disallow=all
-
 allow=ulaw
-
 context=incoming
+</pre>
 
-3. Reload the sip configuration
+### Reload the sip configuration
 
-asterisk -r
-
+<pre>
+asterisk -rvvvvvv
 sip reload
+</pre>
 
-4. Add the context for the users
+### Add the context for the users
 
-- in /etc/asterisk/extensions.conf add the dialplan for the added extenssions:
+* in /etc/asterisk/extensions.conf add the dialplan for the added extenssions:
 
+</pre>
 [incoming]
 
 exten => 101,1,Dial(SIP/101)
-
 exten => 102,1,Dial(SIP/102)
+</pre>
 
-5. Reload the dialplan
+### Reload the dialplan
 
+<pre>
 asterisk -r
-
 dialplan reload
+</pre>
 
-B. Text to speach service - Festival
+## Text to speach service - Festival
 
-1. Install
+## Install Festival
 
+<pre>
 apt-get install festival
+</pre>
 
-2. Example of generating the audio file from a text file:
+### Example of generating the audio file from a text file:
 
+<pre>
 cat /tmp/tts.txt | text2wave -o /tmp/tts.ulaw -otype ulaw
+</pre>
 
-B. Originate calls from the command line
+## Originate calls from the command line
 
+<pre>
 asterisk -rx "originate sip/101 extension 10@tts-message"
+</pre>
 
 and in extensions.conf:
 
+<pre>
 [tts-message]
 
 exten => 10,1,Answer()
-
 exten => 10,n,Playback(myfile)
-
 exten => 10,n,Hangup()
+</pre>
 
-III Python component
----------------------
+# Python component
+
+<pre>
 Location: scripts/get_sensor_Readings.py
+</pre>
 
 This script is used to read the sensor data into a file.
-The analog sensors are connected to Raspberry PI via an ADC(MCP 3008). 
+The analog sensors are connected to Raspberry PI via an ADC (Analog Digital Convertor) (MCP 3008). 
 The readings from the sensors are stored into a text file. 
 
 
+# Node.js Component
 
-IV Node.js Component
---------------------------
+<pre>
 Location: node_server/server.js
+</pre>
 
-Intro.
+## Introduction
+
 This component is used for realtime notifications for the sensor readings.
-For the realtime communication we are using webscokets (socket.io)
+For the realtime communication we are using websockets (socket.io)
 We are using an event listener for the sensor reading txt file change event.
 
-1.Install node.js
+### Install node.js
+
+<pre>
 apt-get install nodejs
+</pre>
 
-2.Install npm
+### Install npm
+
+<pre>
 apt-get install nodejs npm
+</pre>
 
-3.Install socket.io
+### Install socket.io
+
+<pre>
 npm install socket.io
+</pre>
 
-V Hardware setup
------------------
-- FSR (Force Sensitive Resistor) Brick Sensor connected to an ADC(MCP 3008) via a sensor sheild
-- Raspberry PI
+# Hardware setup
 
-VI. Services to start
+* FSR (Force Sensitive Resistor) Brick Sensor connected to an ADC(MCP 3008) via a sensor sheild
+* Raspberry PI
 
-1. Python script
+# Services to start
 
+* Python script
+
+<pre>
 python /var/scripts/get_sensor_readings.py
+</pre>
 
-2. NodeJS server
+* NodeJS server
 
+<pre>
 nodejs /var/node_server/server.js
+</pre>
